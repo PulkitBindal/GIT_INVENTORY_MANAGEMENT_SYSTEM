@@ -1,4 +1,16 @@
 import json
+import time
+import datetime  
+
+
+a_datetime = datetime.datetime.now()
+
+formatted_datetime = a_datetime.isoformat()
+
+json_datetime = json.dumps(formatted_datetime)
+
+json_datetime = json_datetime.split("T")
+
 
 fd = open("record.json",'r')
 
@@ -12,22 +24,22 @@ print("Available Inventory Products : ")
 
 print(r)
 
-ui_prod  = str(input("Enter the product_Id: "))
+ci_name = str(input("Enter the Customer's Name : "))
 
-ui_quant = int(input("Enter the quantity: "))
+ui_prod  = str(input("Enter the Product Id: "))
 
-if (ui_quant>records[ui_prod]['qn']):
+ui_pname  = str(input("Enter the Product Name: "))
+
+ui_price = int(input("Enter the Price : "))
+
+ui_quant = int(input("Enter the Quantity: "))
+
+
+if (ui_quant>records[ui_prod]['product_quantity']):
 	print("*******************************")
 	print("WE ARE NOT HAVING THAT MUCH OF QUANTITY. PLEASE INPUT LESS THAN "+str(records[ui_prod]['qn']))
 	print("*******************************")
 
-print("Product: ",records[ui_prod]['name'])
-
-print("Price: ",records[ui_prod]['pr'])
-
-print("Billing Amount: ",records[ui_prod]['pr'] * ui_quant)
-
-records[ui_prod]['qn'] = records[ui_prod]['qn'] - ui_quant
 
 js = json.dumps(records) # Converting the data into text format.
 
@@ -35,7 +47,25 @@ fd = open("record.json",'w')
 
 fd.write(js)
 
-fd.close()
+print("** PULKIT'S INVENTORY MANAGEMENT SYSTEM WELCOMES YOU ** ")
+
+print("Customer's Name: ",ci_name)
+
+print("Product ID : ",ui_prod)
+
+print("Product Name : ",ui_pname)
+
+print("Product Quantity : ",ui_quant)
+
+print("Date $ Time : ",json_datetime)
+
+print("Billing Amount: ",ui_price * ui_quant)
+
+print("*******************************")
+print("THANKS FOR SHOPPING. PLEASE VISIT AGAIN ")
+print("*******************************")
+
+records[ui_prod]['product_price'] = records[ui_prod]['product_quantity'] - ui_quant
 
 fd1 = open("sales.json",'r')
 
@@ -43,14 +73,17 @@ r1 = fd1.read()
 
 fd1.close()
 
+fd.close()
+
 sale = json.loads(r1)
+
 
 #print("Available Sales are : ")
 
 print("Sales Database Updated Successfully..!!")
 
 
-sale[(len(sale)+1)] = {"prod" : ui_prod, "qn" : ui_quant, "amount": records[ui_prod]['pr'] * ui_quant}
+sale[(len(sale)+1)] = {"Customer's Name" : ci_name,"Product's Id" : ui_prod, "Product's Name":ui_pname, "Quantity" : ui_quant, "Amount": ui_price * ui_quant, "Date $ Time" : json_datetime }
 
 js1 = json.dumps(sale) # Converting the data into text format.
 
