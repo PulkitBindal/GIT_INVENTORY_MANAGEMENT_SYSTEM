@@ -65,6 +65,21 @@ Run the third command (For Billing and Updating the Inventory)
   python purchasing_products.py
 ```
   
+## Screenshots
+1. <br>
+![1 new_product_added](https://user-images.githubusercontent.com/67583540/132222112-f7b99bf0-aed8-473f-bdf3-39874fd53444.png)
+
+2. <br>
+![2 inventory_stock_updated](https://user-images.githubusercontent.com/67583540/132222271-48e72169-7391-43cc-bb12-afd344de3830.png)
+
+3. <br>
+![3 purchase_and_inventory_updated](https://user-images.githubusercontent.com/67583540/132222290-fd72996a-5455-4bd3-a6a0-52ea70165554.png)
+
+4. <br>
+![4 sales_updated](https://user-images.githubusercontent.com/67583540/132222325-da7b5bd9-b7b2-4ffb-9c75-0a9a13b02427.png)
+
+
+
 ## 🛠 Skills
 Python, Jupyter Notebook, Anaconda Navigator, etc ...
 
