@@ -27,7 +27,7 @@ diameter = int(input("Enter Diameter:"))
 material = str(input("Enter Material:"))
 
 
-record[prod_id] = {'product_name': name, 'product_price': pr, 'product_quantity': record[prod_id]['qn']+qn, 'product_weight': weight, 'product_diameter' : diameter, 'product_material' : material}
+record[prod_id] = {'product_name': name, 'product_price': pr, 'product_quantity': record[prod_id]['product_quantity']+qn, 'product_weight': weight, 'product_diameter' : diameter, 'product_material' : material}
 
 js = json.dumps(record)
 
