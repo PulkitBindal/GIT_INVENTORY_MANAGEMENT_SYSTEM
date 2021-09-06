@@ -12,15 +12,22 @@ print(r)
 
 record = json.loads(r)
 
-prod_id = str(input("Enter product id:"))
+prod_id = str(input("Enter Product ID:"))
 
-name = str(input("Enter name:"))
+name = str(input("Enter Name:"))
 
-pr = int(input("Enter price:"))
+pr = int(input("Enter Price:"))
 
-qn = int(input("Enter quantity:"))
+qn = int(input("Enter Quantity:"))
 
-record[prod_id] = {'name': name, 'pr': pr, 'qn': qn}
+weight = int(input("Enter Weight:"))
+
+diameter = int(input("Enter Diameter:"))
+
+material = str(input("Enter Material:"))
+
+
+record[prod_id] = {'product_name': name, 'product_price': pr, 'product_quantity': qn, 'product_weight': weight, 'product_diameter' : diameter, 'product_material' : material}
 
 js = json.dumps(record) 
 
@@ -30,4 +37,6 @@ fd.write(js)
 
 fd.close()
 
-print("Updated Inventory :",js)
+print("------------------------------")
+print("NEW PRODUCT HAS BEEN ADDED SUCCESSFULLY.")
+print("------------------------------")
